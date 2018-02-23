@@ -47,6 +47,13 @@ app.get( "/listings", function( req, res ){
     });
 });
 
+app.get( "/users/:id/listings", function( req, res ){
+    Listing.find( { _user: req.params.id }, function( err, data ){
+        if( err ){ res.json( { message: "Error", error: err } ) }
+        else{ res.json( { message: "Success", listings: data } ) }
+    });
+});
+
 app.get( "/listings/:id", function( req, res ){
     Listing.find( { _id: req.params.id }, function( err, data ){
         if( err ){ res.json( { message: "Error", error: err } ) }
@@ -80,6 +87,8 @@ app.put( "/listings/:id", function( req, res ){
         title: req.body.title,
         desc: req.body.desc,
         price: req.body.price,
+        city: req.body.city,
+        state: req.body.state
     }, function( err, data ){
         if( err ){ res.json( { message: "Error", error: err } ) }
         else{ res.json( { message: "Success", listings: data } ) }
@@ -148,6 +157,6 @@ app.all( "*", ( req, res, next ) => {
     res.sendFile( path.resolve( "./client/dist/index.html" ) );
 });
 
-app.listen( 8000, function(){
+app.listen( 8001, function(){
     console.log( "listening on port 8000" );
 });

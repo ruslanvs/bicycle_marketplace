@@ -1,0 +1,18 @@
+<h1>Edit/Delete Listings</h1>
+<div *ngFor = "let i of listings_by_user.listings">
+  <form (submit) = "listings_update( i )">
+    <p>{{ i | json }}</p>
+    <input type="text" name = "i.title" [(ngModel)] = "i.title" placeholder = "title"/>
+    <br>
+    <input type="text" name = "i.desc" [(ngModel)] = "i.desc" placeholder = "description"/>
+    <br>
+    <input type="text" name = "i.price" [(ngModel)] = "i.price" placeholder = "price"/>
+    <br>
+    <input type="text" name = "i.city" [(ngModel)] = "i.city" placeholder = "city"/>
+    <br>
+    <input type="text" name = "i.state" [(ngModel)] = "i.state" placeholder = "state"/>
+    <br>
+    <input type = "submit" valur = "Save"/>
+  </form>
+
+</div>

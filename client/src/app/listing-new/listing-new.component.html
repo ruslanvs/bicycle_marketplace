@@ -1,0 +1,12 @@
+<h1>Create Listing</h1>
+
+<form (submit) = "listings_create()">
+  <p>{{ new_listing | json }}</p><!-- >> remove -->
+  <input type="text" name="new_listing.title" [(ngModel)]="new_listing.title" placeholder="title"/>
+  <br>
+  <input type="text" name="new_listing.desc" [(ngModel)]="new_listing.desc" placeholder="description"/>
+  <br>
+  <input type="text" name="new_listing.price" [(ngModel)]="new_listing.price" placeholder="price"/>
+  <br>
+  <input type="submit" value="CREATE"/>
+</form>

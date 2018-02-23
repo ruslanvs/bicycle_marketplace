@@ -1,0 +1,11 @@
+<div *ngFor="let i of listings_all.listings">
+  <h2>{{ i.title }}</h2>
+  <p>{{ i.desc }}</p>
+  <p>${{ i.price }}</p>
+  <p>{{ i.city }}, {{ i.state }}</p>
+  <!-- <p>Listing id: {{ i._id }}</p>
+  <p>User id: {{ i._user }}</p> -->
+  <button (click) = "listings_get_one( i._id )">Details</button>
+  <button (click) = "listings_delete_one( i._id )">Delete</button>
+  <button (click) = "users_get_one( i._user )">Contact</button>
+</div> 
